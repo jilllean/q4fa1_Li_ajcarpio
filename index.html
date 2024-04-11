@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA 1</title>
+</head>
+<body>
+    <form id="login" onsubmit="return submitForm()">
+        <fieldset form="login">
+            <legend>Log-in Credentials: </legend>
+    
+            <label for="name">Name:</label><br/>
+            <input type="text" id="name" name="name" onblur="myFunction1n()" onfocus="myFunction2n()"><br/>
+    
+            <label for="gender">Gender:</label></br>
+            <select name="gender" id="gender" onblur="myFunction1g()" onfocus="myFunction2g()">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="notMentioned">Prefer not to mention</option>
+            </select><br/>
+    
+            <label for="userName">Username:</label><br/>
+            <input type="text" id="userName" name="userName" onblur="myFunction1un()" onfocus="myFunction2un()"><br/>
+    
+            <label for="password">Password: </label><br/>
+            <input type="password" id="pWord" name="password" onblur="myFunction1pw()" onfocus="myFunction2pw()"><br/>
+    
+            <label for="email">Email:</label><br/>
+            <input type="email" id="email" name="email" onblur="myFunction1e()" onfocus="myFunction2e()"><br/>
+    
+            <label for="address">Address: </label></br>
+            <textarea id="address" name="address" rows="1" cols="50" onblur="myFunction1a()" onfocus="myFunction2a()"> </textarea></br>
+    
+            <label for="userInterest">User's Interests: </label></br>
+            <textarea id="userInterest" name="userInterest" rows="4" cols="50" onblur="myFunction1ui()" onfocus="myFunction2ui()"> </textarea></br>
+            
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset" onclick="clearUserInfo()">
+        </fieldset>
+        
+    </form>
+    
+    <div id="userInfo"></div>
+
+    <script>
+        function myFunction1n() {
+            var x = document.getElementById("name");
+            if (x.value == "") {
+                x.style.border = "2px solid red";
+            }
+        }
+    
+        function myFunction2n() {
+            document.getElementById("name").style.border = "2px solid green";
+        }
+    
+        function myFunction1g() {
+            var x = document.getElementById("gender");
+            if (x.value == "") {
+                x.style.border = "2px solid red";
+            }
+        }
+    
+        function myFunction2g() {
+            document.getElementById("gender").style.border = "2px solid green";
+        }
+    
+        function myFunction1un() {
+            var x = document.getElementById("userName");
+            if (x.value == "") {
+                x.style.border = "2px solid red";
+            }
+        }
+    
+        function myFunction2un() {
+            document.getElementById("userName").style.border = "2px solid green";
+        }
+    
+        function myFunction1pw() {
+            var x = document.getElementById("pWord");
+            if (x.value == "") {
+                x.style.border = "2px solid red";
+            }
+        }
+    
+        function myFunction2pw() {
+            document.getElementById("pWord").style.border = "2px solid green";
+        }
+    
+        function myFunction1e() {
+            var x = document.getElementById("email");
+            if (x.value == "") {
+                x.style.border = "2px solid red";
+            }
+        }
+    
+        function myFunction2e() {
+            document.getElementById("email").style.border = "2px solid green";
+        }
+    
+        function myFunction1a() {
+            var x = document.getElementById("address");
+            if (x.value == "") {
+                x.style.border = "2px solid red";
+            }
+        }
+    
+        function myFunction2a() {
+            document.getElementById("address").style.border = "2px solid green";
+        }
+    
+        function myFunction1ui() {
+            var x = document.getElementById("userInterest");
+            if (x.value == "") {
+                x.style.border = "2px solid red";
+            }
+        }
+    
+        function myFunction2ui() {
+            document.getElementById("userInterest").style.border = "2px solid green";
+        }
+    
+        function submitForm() {
+            var name = document.getElementById('name').value;
+            var gender = document.getElementById('gender').value;
+            var userName = document.getElementById('userName').value;
+            var password = document.getElementById('pWord').value;
+            var email = document.getElementById('email').value;
+            var address = document.getElementById('address').value;
+            var userInterest = document.getElementById('userInterest').value;
+    
+            var userInfo = document.getElementById('userInfo');
+            
+            userInfo.innerHTML = "<p>User Information:</p><p>Name: " + name + "</p><p>Gender: " + gender + "</p><p>Username: " + userName + "</p><p>Password: " + password + "</p><p>Email: " + email + "</p><p>Address: " + address + "</p><p>User's Interests: " + userInterest + "</p>";
+           
+            return false;
+        }
+
+        function clearUserInfo() {
+            document.getElementById('userInfo').innerHTML = "";
+        }
+    </script>
+
+    <style>
+    #login{
+        width: 400px;
+        margin: 0 auto;
+        font-family: Georgia, serif;
+    }
+
+    input[type="text"], input[type="password"], select, textarea{
+        width: 350px;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    input[type="submit"], input[type="reset"] {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 5px;
+        background-color: #4ba6eb;
+        font-family: Georgia, serif;
+        color: black;
+        border: 2px solid black;
+    }
+
+    input[type="submit"]:hover, input[type="reset"]:hover {
+        background-color: #0091ff;
+    }
+
+    #userInfo {
+        width: 400px;
+        margin: 500px;
+        margin-top: 50px;
+        padding: 10px;
+        border: 1px solid black;
+        font-family: Georgia, serif;
+        color: #333;
+        background-color: #a4d1f3;
+    }
+    </style>
+</body>
+</html>
